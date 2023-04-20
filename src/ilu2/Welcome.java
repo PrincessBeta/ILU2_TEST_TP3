@@ -6,11 +6,16 @@ public class Welcome {
 		
 		chaine.append("Hello, ");
 		
-		if (input.trim()!="")
-			chaine.append(input.substring(0,1).toUpperCase() + input.substring(1));
-		else
+		if (input.trim().equals(""))
 			chaine.append("my friend");
+		else
+			chaine.append(input.substring(0,1).toUpperCase() + input.substring(1));
 		
-		return chaine.toString();
+		
+		 if (input.toUpperCase().equals(input) && !input.trim().equals(""))
+			return chaine.append(" !").toString().toUpperCase();
+		 else
+			return chaine.toString();
+		
 	}
 }
