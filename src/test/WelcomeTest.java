@@ -11,6 +11,11 @@ class WelcomeTest {
 	@Test
 	void EX_1() {
 		assertEquals(Welcome.welcome("bob"),"Hello, Bob");
+		assertEquals(Welcome.welcome("sam"),"Hello, Sam");
 	}
 
+	@Test
+	void EX_2() {
+		assertEquals(Welcome.welcome("   "),"Hello, my friend");
+	}
 }
