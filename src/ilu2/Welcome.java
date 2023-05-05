@@ -8,13 +8,14 @@ public class Welcome {
 		
 		if (input.trim().equals(""))
 			chaine.append("my friend");
-		else if (input.split(",").length == 2) {
+		else {
 			String[] names = input.split(",");
-			chaine.append(names[0].substring(0,1).toUpperCase() + names[0].substring(1) + ", ");
-			chaine.append(names[1].substring(0,1).toUpperCase() + names[1].substring(1));
+			for (int i = 0; i < names.length; i++) {
+				chaine.append(names[i].substring(0,1).toUpperCase() + names[i].substring(1));
+				chaine.append(", ");
+			}
+			chaine.replace(chaine.length()-2, chaine.length(), "");
 		}
-		else
-			chaine.append(input.substring(0,1).toUpperCase() + input.substring(1));
 		
 		 if (input.toUpperCase().equals(input) && !input.trim().equals(""))
 			return chaine.append(" !").toString().toUpperCase();
