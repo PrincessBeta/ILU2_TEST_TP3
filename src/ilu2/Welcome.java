@@ -12,13 +12,13 @@ public class Welcome {
 		
 		if (!(split_names[0][0] == null)) {
 			chaine.append("Hello, ");
-			chaine.append(list_names(split_names[0]));
+			chaine.append(list_names(split_names[0],false));
 			if (!(split_names[1][0] == null))
 				chaine.append(". AND ");
 		}
 		if (!(split_names[1][0] == null)) {
 			chaine.append("HELLO, ");
-			chaine.append(list_names(split_names[1]));
+			chaine.append(list_names(split_names[1],true));
 			chaine.append(" !");
 
 		}
@@ -45,14 +45,20 @@ public class Welcome {
 	
 	
 	
-	private static String list_names(String[] names) {
+	private static String list_names(String[] names, Boolean cap) {
 		StringBuilder chaine = new StringBuilder();
-			for (int i = 0; i < names.length && (names[i] != null); i++) {
-				System.out.println(names[i]);
-				chaine.append(names[i].substring(0,1).toUpperCase() + names[i].substring(1));
-				chaine.append(", ");
-			}
+		int i = 0;
+		for (; i < names.length && (names[i] != null); i++) {
+			System.out.println(names[i]);
+			chaine.append(names[i].substring(0,1).toUpperCase() + names[i].substring(1));
+			chaine.append(", ");
+		}
 		chaine.replace(chaine.length()-2, chaine.length(), "");
+		if (!cap)
+			chaine.insert(chaine.length()-(names[i-1].length()),"and ");
+		else 
+			chaine.insert(chaine.length()-(names[i-1].length()),"AND ");
+
 		return chaine.toString();
 	}
 }
