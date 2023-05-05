@@ -33,9 +33,9 @@ public class Welcome {
 		int index0 = 0, index1 = 0;
 		for(int i = 0; i<names.length;i++) {
 			if (names[i].equals(names[i].toUpperCase()))
-				split_names[1][index1++] = names[i];
+				split_names[1][index1++] = names[i].trim();
 			else 
-				split_names[0][index0++] = names[i];
+				split_names[0][index0++] = names[i].trim();
 		}
 		
 
@@ -49,7 +49,6 @@ public class Welcome {
 		StringBuilder chaine = new StringBuilder();
 		int i = 0;
 		for (; i < names.length && (names[i] != null); i++) {
-			System.out.println(names[i]);
 			chaine.append(names[i].substring(0,1).toUpperCase() + names[i].substring(1));
 			chaine.append(", ");
 		}
